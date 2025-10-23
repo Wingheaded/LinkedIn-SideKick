@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import PostPreview from '@/components/PostPreview';
+import PostPreview from '../components/PostPreview';
 
 type Item = {
   source: string;
