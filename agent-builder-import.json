@@ -1,0 +1,86 @@
+{
+  "name": "LinkedIn Sidekick",
+  "instructions": "Cria posts de LinkedIn em PT‑PT, 3–4 parágrafos curtos + pergunta + 3–6 hashtags + apenas 1 link no final, sem referência ao nome da fonte no corpo. Pesquisa apenas em fontes aprovadas (≤14 dias), verifica link e remove tracking. Emojis 0–2, só se reforçarem o sentido. Se alguma regra falhar, reescreve automaticamente até cumprir. A saída deve ser limpa e pronta a colar no LinkedIn.",
+  "conversation_starters": [
+    "Gera um post sobre acústica e bem‑estar",
+    "Traz um insight sobre mobiliário modular"
+  ],
+  "capabilities": [
+    "web_search"
+  ],
+  "tools": [
+    {
+      "type": "action",
+      "name": "GeneratePost",
+      "description": "Gerar post final a partir de um artigo: devolve texto com 1 link no fim.",
+      "definition": {
+        "type": "openapi",
+        "openapi": {
+          "openapi": "3.1.0",
+          "info": {
+            "title": "LinkedIn Sidekick API",
+            "version": "1.0.0"
+          },
+          "paths": {
+            "/api/generate": {
+              "post": {
+                "operationId": "generatePost",
+                "summary": "Gerar post",
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "summary": {
+                            "type": "string"
+                          },
+                          "bucket": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "title",
+                          "url"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "OK",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "ok": {
+                              "type": "boolean"
+                            },
+                            "post": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "server_url": "https://SEU_DOMINIO_OU_VERCEL.app"
+      }
+    }
+  ]
+}
