@@ -1,11 +1,17 @@
+// next.config.js
+const path = require("path");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: '**' },
-      { protocol: 'http',  hostname: '**' },
-    ],
+  webpack: (config) => {
+    // Garante que "@" aponta para a raiz do projeto
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "@": path.resolve(__dirname),
+    };
+    return config;
   },
+  reactStrictMode: true,
 };
 
-export default nextConfig;
+module.exports = nextConfig;
