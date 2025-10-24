@@ -55,6 +55,12 @@ export default function Page() {
     if (j.ok) setPost(j.post);
     else alert(j.error || 'Erro ao gerar');
   }
+// add this above the return()
+const autoSearch = () => {
+  // For now just reuse the regular search.
+  // Replace with your auto-selection logic later.
+  return search();
+};
 
   return (
     <main style={{maxWidth: 980, margin: '32px auto', padding: 16}}>
