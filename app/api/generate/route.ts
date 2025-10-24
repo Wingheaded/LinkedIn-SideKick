@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { addUsed } from '@/lib/store';
-import { inferBucket, bucketTags } from '@/lib/tags';
+import { addUsed } from '../../../lib/store';
+import { inferBucket, bucketTags } from '../../../lib/tags';
 
 const bodySchema = z.object({
   title: z.string().min(4).max(280),
