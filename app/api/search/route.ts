@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { SOURCES, APPROVED_DOMAINS } from '@/lib/sources';
-import { fetchRss, FeedItem } from '@/lib/rss';
-import { cleanTracking, isApproved, isWithinDays } from '@/lib/url';
-import { fetchOgImage } from '@/lib/og';
-import { isUrlUsedWithin } from '@/lib/store';
+import { SOURCES, APPROVED_DOMAINS } from '../../../lib/sources';
+import { fetchRss, FeedItem } from '../../../lib/rss';
+import { cleanTracking, isApproved, isWithinDays } from '../../../lib/url';
+import { fetchOgImage } from '../../../lib/og';
+import { isUrlUsedWithin } from '../../../lib/store';
 
 export const runtime = 'nodejs';
 
