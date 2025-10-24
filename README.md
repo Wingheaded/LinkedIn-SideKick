@@ -1,4 +1,6 @@
-# LinkedIn Sidekick (Next.js)
+# Redeploy trigger
+
+0# LinkedIn Sidekick (Next.js)
 
 Mini‑app para gerar publicações de LinkedIn em PT‑PT a partir de fontes aprovadas (≤14 dias), com **apenas 1 link no final**.
 
